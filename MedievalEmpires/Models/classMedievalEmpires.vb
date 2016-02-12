@@ -1,0 +1,68 @@
+﻿Imports MedievalEmpires
+
+Public Class MedievalEmpires
+    Private empires As List(Of Empire)
+
+    Public Sub New()
+        Me.pEmpires = New List(Of Empire) From {}
+    End Sub
+    Public Sub New(empires As List(Of Empire))
+        Me.pEmpires = empires
+    End Sub
+
+    Public Property pEmpires As List(Of Empire)
+        Get
+            Return empires
+        End Get
+        Set(value As List(Of Empire))
+            empires = value
+        End Set
+    End Property
+
+    Public Sub addEmpire(empire As Empire)
+        Me.pEmpires.Add(empire)
+    End Sub
+
+    Public Sub populate()
+        'Users
+        Dim account = New User("Andreu", "Sala", "Krotus", "1234", New Roman("Roman Town"))
+        Dim account2 = New User("Marc", "Perez", "Mperez", "4321", New Teuton("Teuton Town"))
+
+        'Empires
+        Dim romanEmpire As New Roman("Romans", 4999, 1000)
+        Dim teutonsEmpire As New Teuton("Teutons", 6400, 1000)
+        Dim gaulEmpire As New Gaul("Gauls", 5234, 1000)
+
+        'Soldiers
+        Dim legionary As New Knight("Legionary", 40, 35, 120, romanEmpire) 'name, attack, defense, cost, empire
+        Dim equitesImperatoris As New Cavalry("Equites Imperatoris", 120, 65, 550, romanEmpire)
+        Dim archerCaesaris As New Archer("Archer Caesaris", 70, 20, 150, romanEmpire)
+
+        romanEmpire.addSoldier(legionary)
+        romanEmpire.addSoldier(equitesImperatoris)
+        romanEmpire.addSoldier(archerCaesaris)
+
+        Dim clubSwinger As New Knight("Clubswinger", 40, 20, 95, teutonsEmpire)
+        Dim paladin As New Cavalry("Paladin", 55, 100, 370, teutonsEmpire)
+        Dim crossbowman As New Archer("Crossbowman", 60, 30, 130, teutonsEmpire)
+
+        teutonsEmpire.addSoldier(clubSwinger)
+        teutonsEmpire.addSoldier(paladin)
+        teutonsEmpire.addSoldier(crossbowman)
+
+        Dim phalanx As New Knight("Phalanx", 25, 40, 100, gaulEmpire)
+        Dim theutatesThunder As New Cavalry("Theutates Thunder", 90, 25, 350, gaulEmpire)
+        Dim archerIce As New Archer("Archer Ice", 65, 35, 140, gaulEmpire)
+
+        gaulEmpire.addSoldier(phalanx)
+        gaulEmpire.addSoldier(theutatesThunder)
+        gaulEmpire.addSoldier(archerIce)
+
+        'add Empires with its soldiers
+        Me.addEmpire(romanEmpire)
+        Me.addEmpire(teutonsEmpire)
+        Me.addEmpire(gaulEmpire)
+    End Sub
+
+
+End Class
