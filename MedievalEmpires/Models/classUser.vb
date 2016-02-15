@@ -7,6 +7,11 @@ Public Class User
     Private password As String
     Private empire As Empire
 
+    Public Sub New(username As String, password As String)
+        MyBase.New("someone", "somelse")
+        pUsername = username
+        pPassword = password
+    End Sub
     Public Sub New(name As String, surname As String, username As String, password As String, empire As Empire)
         MyBase.New(name, surname)
         pUsername = username
@@ -40,5 +45,15 @@ Public Class User
             empire = value
         End Set
     End Property
+
+    Public Function authenticate() As Boolean
+        Dim valid As Boolean
+        If pUsername = "admin" And pPassword = "admin" Then
+            valid = True
+        Else
+            valid = False
+        End If
+        Return valid
+    End Function
 
 End Class

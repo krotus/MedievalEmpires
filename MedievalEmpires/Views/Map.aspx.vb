@@ -1,9 +1,7 @@
-﻿Public Class Dashboard
+﻿Public Class Map
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim game As MedievalEmpires()
-        game = Session("BoME")
 
     End Sub
 

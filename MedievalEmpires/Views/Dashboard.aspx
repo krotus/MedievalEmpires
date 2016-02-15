@@ -4,7 +4,7 @@
     <h2>Options</h2>
     <ul>
         <li><a href="Shop.aspx">SHOP</a></li>
-        <li><a href="Battle.aspx">BATTLE</a></li>
+        <li><a href="Map.aspx">MAP</a></li>
         <li><a href="Login.aspx">LOGOUT</a></li>
     </ul>
     
