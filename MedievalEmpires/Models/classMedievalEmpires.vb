@@ -43,7 +43,7 @@ Public Class MedievalEmpires
         'Dim account = New User("Andreu", "Sala", "Krotus", "1234", New Roman("Roman Town"))
         'Dim account2 = New User("Marc", "Perez", "Mperez", "4321", New Teuton("Teuton Town"))
         For i = 1 To 9
-            Dim account = New User("Name" & i, "Surname" & i, "Username" & i, "0", New Teuton("Teuton Town"))
+            Dim account = New User("Name" & i, "Surname" & i, "username" & i, "password" & i, New Teuton("Teuton Town"))
             Me.addUser(account)
         Next i
         'Empires
@@ -81,5 +81,15 @@ Public Class MedievalEmpires
         Me.addEmpire(teutonsEmpire)
         Me.addEmpire(gaulEmpire)
     End Sub
+
+    Public Function getUserByLogin(ByVal username As String, ByVal password As String) As User
+        Dim _user As User
+        For Each user In pUsers
+            If user.authenticate(username, password) = True Then
+                _user = user
+            End If
+        Next
+        Return _user
+    End Function
 
 End Class

@@ -46,9 +46,9 @@ Public Class User
         End Set
     End Property
 
-    Public Function authenticate() As Boolean
+    Public Function authenticate(ByVal username As String, ByVal password As String) As Boolean
         Dim valid As Boolean
-        If pUsername = "admin" And pPassword = "admin" Then
+        If pUsername = username And pPassword = password Then
             valid = True
         Else
             valid = False
