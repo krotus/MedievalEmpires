@@ -64,7 +64,7 @@
 
 
 </style>
-    <div id="map">
+    <%--<div id="map">
 	    <h2>BATTLE MAP</h2>
 	    <div id="fila1" class="fila fila-side">
 		    <div id="col1" class="column col-side tooltip">
@@ -144,7 +144,7 @@
 	    	    </span>
 	        </div>
 	    </div>
-    </div>
+    </div>--%>
 
     <!-- Modal -->
 	<div style="z-index:9999" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -172,6 +172,8 @@
 	    </div>
 	  </div>
 	</div>
+    
+    <asp:Label ID="dynamicContent" runat="server"></asp:Label>
 
     <script>
 		//TODO
@@ -201,4 +203,5 @@
 		    }
 		};
 	</script>
+    <br />
 </asp:Content>

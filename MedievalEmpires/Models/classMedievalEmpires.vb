@@ -42,8 +42,15 @@ Public Class MedievalEmpires
         'Users
         'Dim account = New User("Andreu", "Sala", "Krotus", "1234", New Roman("Roman Town"))
         'Dim account2 = New User("Marc", "Perez", "Mperez", "4321", New Teuton("Teuton Town"))
+        Dim listEmpires As New List(Of Empire) From {
+                New Roman("Roman Town"),
+                New Teuton("Teuton Town"),
+                New Gaul("Gaul Town")
+        }
+
         For i = 1 To 9
-            Dim account = New User("Name" & i, "Surname" & i, "username" & i, "password" & i, New Teuton("Teuton Town"))
+            Dim random As Integer = CInt(Int((2 * Rnd())))
+            Dim account = New User("Name" & i, "Surname" & i, "username" & i, "password" & i, listEmpires.Item(random))
             Me.addUser(account)
         Next i
         'Empires

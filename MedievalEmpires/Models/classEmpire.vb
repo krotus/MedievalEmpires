@@ -82,4 +82,16 @@ Public MustInherit Class Empire
     Public Sub addSoldier(soldier As Soldier)
         pSoldiers.Add(soldier)
     End Sub
+
+    Public Function getTypeEmpire() As String
+        Dim typeEmpire As String = ""
+        If TypeOf Me Is Roman Then
+            typeEmpire = "Roman"
+        ElseIf TypeOf Me Is Teuton Then
+            typeEmpire = "Teuton"
+        Else
+            typeEmpire = "Gaul"
+        End If
+        Return typeEmpire
+    End Function
 End Class
