@@ -73,10 +73,13 @@ Public Class Shop
 
     Protected Sub btnBuy_Click(sender As Object, e As EventArgs) Handles btnBuy.Click
 
-        'For i = 0 To listSoldiers.Count - 1
-        'MsgBox(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
-        MsgBox(Request.Form)
-        'Next i
+        account = CType(Session("User"), User)
+        game = CType(Session("BoME"), MedievalEmpires)
+        listSoldiers = game.getSoldiersByEmpire(account.pEmpire)
+
+        For i = 0 To listSoldiers.Count - 1
+            MsgBox(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
+        Next
         Server.Transfer("Battle.aspx", True)
     End Sub
 End Class
