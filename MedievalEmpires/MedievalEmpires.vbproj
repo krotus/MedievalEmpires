@@ -269,6 +269,7 @@
     <Content Include="Views\Map.aspx" />
     <Content Include="Views\Shop.aspx" />
     <Content Include="Views\Test.aspx" />
+    <Content Include="Views\Test2.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -426,6 +427,7 @@
     <Compile Include="Models\classRoman.vb" />
     <Compile Include="Models\classSoldier.vb" />
     <Compile Include="Models\classUser.vb" />
+    <Compile Include="Modules\GlobalVariables.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -508,6 +510,13 @@
     </Compile>
     <Compile Include="Views\Test.aspx.vb">
       <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\Test2.aspx.designer.vb">
+      <DependentUpon>Test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test2.aspx.vb">
+      <DependentUpon>Test2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

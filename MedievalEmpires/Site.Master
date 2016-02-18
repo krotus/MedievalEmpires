@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="container body-content" style="margin-top:15px">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

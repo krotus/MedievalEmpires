@@ -46,7 +46,7 @@ Public Class User
         End Set
     End Property
 
-    Public Function authenticate(ByVal username As String, ByVal password As String) As Boolean
+    Public Function checkCredentials(ByVal username As String, ByVal password As String) As Boolean
         Dim valid As Boolean
         If pUsername = username And pPassword = password Then
             valid = True
@@ -54,6 +54,22 @@ Public Class User
             valid = False
         End If
         Return valid
+    End Function
+
+    'Retorna un array d'enters amb la quantitat de soldats que te per cadascun
+    Public Function getForEachSoldiersHave(ByVal listSoldiers) As List(Of Integer)
+        Dim cont As Integer = 0
+        Dim listCounts As New List(Of Integer) From {}
+        For Each s In listSoldiers
+            For Each soldier In Me.pEmpire.pSoldiers
+                If s.GetType Is soldier.GetType Then
+                    cont += 1
+                End If
+            Next
+            listCounts.Add(cont)
+            cont = 0
+        Next
+        Return listCounts
     End Function
 
 End Class

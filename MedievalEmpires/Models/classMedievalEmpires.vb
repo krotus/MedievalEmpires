@@ -43,20 +43,21 @@ Public Class MedievalEmpires
         'Dim account = New User("Andreu", "Sala", "Krotus", "1234", New Roman("Roman Town"))
         'Dim account2 = New User("Marc", "Perez", "Mperez", "4321", New Teuton("Teuton Town"))
         Dim listEmpires As New List(Of Empire) From {
+                New Roman("No uses for random"),
                 New Roman("Roman Town"),
                 New Teuton("Teuton Town"),
                 New Gaul("Gaul Town")
         }
 
         For i = 1 To 9
-            Dim random As Integer = CInt(Int((2 * Rnd())))
-            Dim account = New User("Name" & i, "Surname" & i, "username" & i, "password" & i, listEmpires.Item(random))
+            Dim random0to2 As Integer = CInt(Int((3 * Rnd()) + 1))
+            Dim account = New User("Name" & i, "Surname" & i, "username" & i, "password" & i, listEmpires.Item(random0to2))
             Me.addUser(account)
         Next i
         'Empires
-        Dim romanEmpire As New Roman("Romans", 4999, 1000)
-        Dim teutonsEmpire As New Teuton("Teutons", 6400, 1000)
-        Dim gaulEmpire As New Gaul("Gauls", 5234, 1000)
+        Dim romanEmpire As New Roman("Romans", 0, 0)
+        Dim teutonsEmpire As New Teuton("Teutons", 0, 0)
+        Dim gaulEmpire As New Gaul("Gauls", 0, 0)
 
         'Types of Soldiers
         Dim legionary As New Knight("Legionary", 40, 35, 120, romanEmpire) 'name, attack, defense, cost, empire
@@ -92,11 +93,23 @@ Public Class MedievalEmpires
     Public Function getUserByLogin(ByVal username As String, ByVal password As String) As User
         Dim _user As User
         For Each user In pUsers
-            If user.authenticate(username, password) = True Then
+            If user.checkCredentials(username, password) = True Then
                 _user = user
             End If
         Next
         Return _user
+    End Function
+
+    Public Function getSoldiersByEmpire(empire As Empire) As List(Of Soldier)
+        Dim listSoldiers As New List(Of Soldier) From {}
+        For Each emp In Me.empires
+            For Each soldier In emp.pSoldiers
+                If soldier.pEmpire.GetType Is empire.GetType Then
+                    listSoldiers.Add(soldier)
+                End If
+            Next
+        Next
+        Return listSoldiers
     End Function
 
 End Class

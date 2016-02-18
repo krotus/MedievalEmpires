@@ -94,4 +94,5 @@ Public MustInherit Class Empire
         End If
         Return typeEmpire
     End Function
+
 End Class

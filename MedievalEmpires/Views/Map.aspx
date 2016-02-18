@@ -32,14 +32,14 @@
 		position:relative;
 		opacity: 1;
 	}
-	.tooltip span {
+	.tooltip > span {
 		line-height: 1;
 		text-align: left;
 		padding: 0 2em 2em 2em;
 		border-radius: 5px;
 		display:none;
 	}
-	.tooltip:hover span {
+	.tooltip:hover > span {
 		display:block;
 		position:fixed;
 		overflow:hidden;
@@ -161,7 +161,7 @@
     	  		<p id="modal-empire">One fine body…</p>
     	  	</div>
     	    <div class="modal-body-right">
-    	    	<p>ATTACK</p>
+    	    	<p id="attack"><a href="">ATTACK</a></p>
     	    	<p>DEFENSE</p>
     			<p>SCOUT</p>
     	    </div>
@@ -177,19 +177,20 @@
 
     <script>
 		//TODO
-		var tooltips = document.querySelectorAll('.tooltip span');
+		var tooltips = document.querySelectorAll('.tooltip > span');
 		var empires = document.getElementsByClassName('column');
 		for(var  i = 0 ; i < empires.length ; i++){
 			empires[i].onclick = function(){
-				//alert("empire " + this.id);
 				var title = $("#" + this.id + " span h3")[0].innerText;
-				var player = $("#" + this.id + " span p")[0].innerText;
-				var population = $("#" + this.id + " span p")[1].innerText;
-				var empire = $("#" + this.id + " span p")[2].innerText;
+				var player = $("#" + this.id + " span p span")[0].innerText;
+				var population = $("#" + this.id + " span p span")[1].innerText;
+				var empire = $("#" + this.id + " span p span")[2].innerText;
+				var tmp = player
 				$('#myModalLabel').html(title);
-				$('#modal-player').html(player);
-				$('#modal-population').html(population);
-				$('#modal-empire').html(empire);
+				$('#modal-player').html('Player :  '+ player);
+				$('#modal-population').html("Population : " + population);
+				$('#modal-empire').html("Empire : " + empire);
+				$('#attack').html("<a href='Battle?player=" + player + "'>ATTACK</a>")
 				$('#myModal').modal('show');
 			}
 		}

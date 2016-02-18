@@ -667,9 +667,54 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:MedievalEmpires.Shop._lblTableShop">
+<summary>
+Control lblTableShop.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:MedievalEmpires.Shop._btnBuy">
+<summary>
+Control btnBuy.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:MedievalEmpires.Shop._lblListArmy">
+<summary>
+Control lblListArmy.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:MedievalEmpires.Shop._lblCurrency">
+<summary>
+Control lblCurrency.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:MedievalEmpires.Test._btnRomanTroops">
 <summary>
 Control btnRomanTroops.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:MedievalEmpires.Test2._wtf">
+<summary>
+Control wtf.
 </summary>
 <remarks>
 Campo generado automáticamente.
