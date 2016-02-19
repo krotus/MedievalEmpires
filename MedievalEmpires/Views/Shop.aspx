@@ -27,11 +27,22 @@
         .btn {
             display: inline-block;
         }
+        button, html input[type="button"], input[type="reset"], input[type="submit"] {
+            height: auto;
+        }
 
         li > span {
             font-weight: bold;
         }
+        .alert {
+            font-weight: bold;
+        }
     </style>
+    <div class="row">
+        <div class="col-md-12">
+            <asp:Label ID="lblOutput" runat="server"></asp:Label>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-6">
             <div id="panel-shop" class="panel panel-default">
@@ -42,7 +53,7 @@
                 <!--table-->
                 <asp:Label ID="lblTableShop" runat="server"></asp:Label>
                 <div class="align-right">
-                    <asp:Button ID="btnBuy" runat="server" Text="BUY"/>
+                    <asp:Button ID="btnBuy" runat="server" Text="BUY" class="btn btn-primary"/>
                 </div>
             </div>
         </div>

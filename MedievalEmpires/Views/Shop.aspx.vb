@@ -4,9 +4,6 @@ Imports System.Net
 Public Class Shop
     Inherits System.Web.UI.Page
 
-    Public account As User
-    Public game As MedievalEmpires
-    Public listSoldiers As List(Of Soldier)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             account = CType(Session("User"), User)
@@ -61,7 +58,7 @@ Public Class Shop
                            <td>" & soldier.pName & "</td>
                            <td>" & soldier.pPrice & "</td>
                            <td>
-                               <input name='ctl00$MainContent$tbQuantity" & i & "' type='number' id='MainContent_tbQuantity" & i & "' class='form-control' />
+                               <input name='ctl00$MainContent$tbQuantity" & i & "' type='number' id='MainContent_tbQuantity" & i & "' class='form-control' value='0' />
                            </td>
                         </tr>"
             i += 1
@@ -73,13 +70,44 @@ Public Class Shop
 
     Protected Sub btnBuy_Click(sender As Object, e As EventArgs) Handles btnBuy.Click
 
-        account = CType(Session("User"), User)
-        game = CType(Session("BoME"), MedievalEmpires)
-        listSoldiers = game.getSoldiersByEmpire(account.pEmpire)
+        Dim totalToPay = totalToBuy(listSoldiers)
+        If totalToPay > 0 Then
+            If totalToPay > account.pEmpire.pCoins Then
+                'Error: no enough money
+                lblOutput.Text = "<div class='alert alert-danger' role='alert'>
+                                Ops, You can't buy new soldiers. You don't have enough gold!!!
+                                </div>"
+            Else
+                For i = 0 To listSoldiers.Count - 1
+                    Dim quantity As Integer = CInt(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
+                    If quantity > 0 Then
+                        account.pEmpire.buyNSoldiers(listSoldiers.Item(i), quantity)
+                    End If
+                Next
+                lblOutput.Text = "<div class='alert alert-success' role='alert'>
+                                Congratulations, you have recruited new soldiers!!!
+                                </div>"
+                Session("User") = account
+                Response.Redirect("Shop.aspx")
+                'Server.Transfer("Battle.aspx", True)
+            End If
+        Else
+            'Error: no soldiers recuit
+            lblOutput.Text = "<div class='alert alert-warning' role='alert'>
+                                Mmm, seems you don't want to recuit anyone.
+                                </div>"
+        End If
 
-        For i = 0 To listSoldiers.Count - 1
-            MsgBox(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
-        Next
-        Server.Transfer("Battle.aspx", True)
     End Sub
+
+    Public Function totalToBuy(listSoldiers As List(Of Soldier)) As Integer
+        Dim total As Integer = 0
+        For i = 0 To listSoldiers.Count - 1
+            Dim quantity As Integer = CInt(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
+            If quantity > 0 Then
+                total += listSoldiers.Item(i).pPrice * quantity
+            End If
+        Next
+        Return total
+    End Function
 End Class

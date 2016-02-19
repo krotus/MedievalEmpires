@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Shop
     
     '''<summary>
+    '''Control lblOutput.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblOutput As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control lblTableShop.
     '''</summary>
     '''<remarks>
