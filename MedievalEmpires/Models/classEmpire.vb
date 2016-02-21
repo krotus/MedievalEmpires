@@ -79,6 +79,12 @@ Public MustInherit Class Empire
         Return bought
     End Function
 
+    Public Overridable Sub buyNSoldiers(soldier As Soldier, quantity As Integer)
+        For i = 1 To quantity
+            Me.buySoldier(soldier)
+        Next
+    End Sub
+
     Public Sub addSoldier(soldier As Soldier)
         pSoldiers.Add(soldier)
     End Sub
@@ -94,5 +100,9 @@ Public MustInherit Class Empire
         End If
         Return typeEmpire
     End Function
+
+    Public Sub spendMoney(ByVal goldToSpend As Integer)
+        pCoins -= goldToSpend
+    End Sub
 
 End Class

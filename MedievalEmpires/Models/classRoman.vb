@@ -2,7 +2,7 @@
     Inherits Empire
 
     Public Sub New(name As String)
-        MyBase.New(name, 0, 0)
+        MyBase.New(name, 0, 999)
     End Sub
 
     Public Sub New(name As String, population As Integer, coins As Integer)
