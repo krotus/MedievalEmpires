@@ -604,9 +604,9 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:MedievalEmpires.Battle._lblListArmy">
+<member name="F:MedievalEmpires.Battle._lblArmyToFight">
 <summary>
-Control lblListArmy.
+Control lblArmyToFight.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -622,6 +622,15 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:MedievalEmpires.Battle._lblArmyEnemy">
+<summary>
+Control lblArmyEnemy.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:MedievalEmpires.Battle._Label1">
 <summary>
 Control Label1.
@@ -631,9 +640,9 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:MedievalEmpires.Battle._Label2">
+<member name="F:MedievalEmpires.Battle._Button1">
 <summary>
-Control Label2.
+Control Button1.
 </summary>
 <remarks>
 Campo generado automáticamente.
