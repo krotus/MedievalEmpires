@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class Battle
     
     '''<summary>
-    '''Control lblListArmy.
+    '''Control lblArmyToFight.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblListArmy As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblArmyToFight As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control lblCurrency.
@@ -32,13 +32,13 @@ Partial Public Class Battle
     Protected WithEvents lblCurrency As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblTableBattle.
+    '''Control lblArmyEnemy.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTableBattle As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblArmyEnemy As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control Label1.
@@ -50,11 +50,11 @@ Partial Public Class Battle
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control Label2.
+    '''Control Button1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 End Class
