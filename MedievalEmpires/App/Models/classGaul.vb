@@ -1,6 +1,8 @@
 ﻿Public Class Gaul
     Inherits Empire
 
+    Public Event spendCoins(ByVal coins As Integer)
+
     Public Sub New(name As String)
         MyBase.New(name, 0, 999)
     End Sub
@@ -9,19 +11,21 @@
         MyBase.New(name, population, coins)
     End Sub
 
-    Public Overrides Function buySoldier(soldier As Soldier) As Boolean
-        Dim bought As Boolean = False
+    Public Overrides Sub buySoldier(soldier As Soldier)
         If soldier.pEmpire.GetType Is Me.GetType Then
-            pCoins = pCoins - soldier.pPrice
+            Dim aux = pCoins - soldier.pPrice
             If pCoins < 0 Then
-                bought = False
+                RaiseEvent spendCoins(pCoins)
             Else
+                pCoins = pCoins - soldier.pPrice
                 pSoldiers.Add(soldier)
-                bought = True
             End If
-        Else
-            Throw New Exception("You can't buy a soldier that not belongs this empire.")
         End If
-        Return bought
-    End Function
+    End Sub
+
+    Private Sub Empire_spendCoins(ByVal coins As Integer) Handles Me.spendCoins
+        Throw New System.Exception("You don't have enough golds to buy soldiers.")
+    End Sub
+
+
 End Class

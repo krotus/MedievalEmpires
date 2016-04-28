@@ -67,23 +67,15 @@ Public MustInherit Class Empire
     End Property
 
     'Comprem el soldat i l'afeguim a la llista sempre i quan l'imperi tingui monedes suficients
-    Public Overridable Function buySoldier(soldier As Soldier) As Boolean
-        Dim bought As Boolean = False
-        pCoins = pCoins - soldier.pPrice
-        If pCoins < 0 Then
-            bought = False
-        Else
-            pSoldiers.Add(soldier)
-            bought = True
-        End If
-        Return bought
-    End Function
+    Public MustOverride Sub buySoldier(soldier As Soldier)
+
 
     Public Overridable Sub buyNSoldiers(soldier As Soldier, quantity As Integer)
         For i = 1 To quantity
             Me.buySoldier(soldier)
         Next
     End Sub
+
 
     Public Sub addSoldier(soldier As Soldier)
         pSoldiers.Add(soldier)
@@ -104,5 +96,21 @@ Public MustInherit Class Empire
     Public Sub spendMoney(ByVal goldToSpend As Integer)
         pCoins -= goldToSpend
     End Sub
+
+    Public Function getTotalDamage() As Integer
+        Dim damage As Integer = 0
+
+        Return damage
+    End Function
+
+    Public Function getTotalDefense() As Integer
+        Dim defense As Integer = 0
+        For Each soldier In Me.pSoldiers
+            defense += soldier.pDefense
+        Next
+        Return defense
+    End Function
+
+
 
 End Class

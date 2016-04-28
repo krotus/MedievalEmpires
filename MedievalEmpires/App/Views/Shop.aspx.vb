@@ -69,35 +69,40 @@ Public Class Shop
     End Function
 
     Protected Sub btnBuy_Click(sender As Object, e As EventArgs) Handles btnBuy.Click
-
-        Dim totalToPay = totalToBuy(listSoldiers)
-        If totalToPay > 0 Then
-            If totalToPay > account.pEmpire.pCoins Then
-                'Error: no enough money
-                lblOutput.Text = "<div class='alert alert-danger' role='alert'>
-                                Ops, You can't buy new soldiers. You don't have enough gold!!!
-                                </div>"
-            Else
+        Try
+            Dim totalToPay = totalToBuy(listSoldiers)
+            If totalToPay > 0 Then
+                Dim control As Boolean = False
                 For i = 0 To listSoldiers.Count - 1
                     Dim quantity As Integer = CInt(Request.Form("ctl00$MainContent$tbQuantity" & i + 1))
                     If quantity > 0 Then
-                        account.pEmpire.buyNSoldiers(listSoldiers.Item(i), quantity)
+                        Try
+                            account.pEmpire.buyNSoldiers(listSoldiers.Item(i), quantity)
+                            control = True
+                        Catch ex As Exception
+                            control = False
+                            MsgBox(ex.Message)
+                        End Try
+
                     End If
                 Next
-                lblOutput.Text = "<div class='alert alert-success' role='alert'>
-                                Congratulations, you have recruited new soldiers!!!
-                                </div>"
-                Session("User") = account
-                Response.Redirect("Shop.aspx")
-                'Server.Transfer("Battle.aspx", True)
-            End If
-        Else
-            'Error: no soldiers recuit
-            lblOutput.Text = "<div class='alert alert-warning' role='alert'>
+
+                If control = True Then
+                    lblOutput.Text = "<div class='alert alert-success' role='alert'>
+                            Congratulations, you have recruited new soldiers!!!
+                            </div>"
+                    Session("User") = account
+                    Response.Redirect("Shop.aspx")
+                End If
+            Else
+                'Error: no soldiers recuit
+                lblOutput.Text = "<div class='alert alert-warning' role='alert'>
                                 Mmm, seems you don't want to recuit anyone.
                                 </div>"
-        End If
-
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Public Function totalToBuy(listSoldiers As List(Of Soldier)) As Integer

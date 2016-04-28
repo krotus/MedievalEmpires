@@ -4,7 +4,7 @@
     Public account As User
     Public account2 As User
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        game = New MedievalEmpires()
+
         account = New User("Andreu", "Sala", "Krotus", "1234", New Roman("Roman Town"))
         account2 = New User("Marc", "Perez", "Mperez", "4321", New Teuton("Teuton Town"))
         game.populate()

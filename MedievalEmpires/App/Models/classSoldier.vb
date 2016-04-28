@@ -68,4 +68,6 @@ Public MustInherit Class Soldier
             Empire = value
         End Set
     End Property
+
+
 End Class

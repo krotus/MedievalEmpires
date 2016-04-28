@@ -45,6 +45,10 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\andreu\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -219,6 +223,8 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App\Controllers\ctrlIndex.aspx" />
+    <Content Include="App\Views\AjaxTest.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -261,14 +267,15 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Battle.aspx" />
-    <Content Include="Views\Css\bootstrap.min.css" />
-    <Content Include="Views\Dashboard.aspx" />
-    <Content Include="Views\Js\bootstrap.min.js" />
-    <Content Include="Views\Login.aspx" />
-    <Content Include="Views\Map.aspx" />
-    <Content Include="Views\Shop.aspx" />
-    <Content Include="Views\Test.aspx" />
+    <Content Include="App\Views\Battle.aspx" />
+    <Content Include="App\Views\Css\bootstrap.min.css" />
+    <Content Include="App\Views\Dashboard.aspx" />
+    <Content Include="App\Views\Js\bootstrap.min.js" />
+    <Content Include="App\Views\Login.aspx" />
+    <Content Include="App\Views\Map.aspx" />
+    <Content Include="App\Views\Result.aspx" />
+    <Content Include="App\Views\Shop.aspx" />
+    <Content Include="App\Views\Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -387,6 +394,20 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="App\Controllers\ctrlIndex.aspx.designer.vb">
+      <DependentUpon>ctrlIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Controllers\ctrlIndex.aspx.vb">
+      <DependentUpon>ctrlIndex.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="App\Views\AjaxTest.aspx.designer.vb">
+      <DependentUpon>AjaxTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\AjaxTest.aspx.vb">
+      <DependentUpon>AjaxTest.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\IdentityConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
@@ -415,18 +436,18 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\classArcher.vb" />
-    <Compile Include="Models\classCavalry.vb" />
-    <Compile Include="Models\classEmpire.vb" />
-    <Compile Include="Models\classGaul.vb" />
-    <Compile Include="Models\classPerson.vb" />
-    <Compile Include="Models\classTeuton.vb" />
-    <Compile Include="Models\classKnight.vb" />
-    <Compile Include="Models\classMedievalEmpires.vb" />
-    <Compile Include="Models\classRoman.vb" />
-    <Compile Include="Models\classSoldier.vb" />
-    <Compile Include="Models\classUser.vb" />
-    <Compile Include="Modules\GlobalVariables.vb" />
+    <Compile Include="App\Models\classArcher.vb" />
+    <Compile Include="App\Models\classCavalry.vb" />
+    <Compile Include="App\Models\classEmpire.vb" />
+    <Compile Include="App\Models\classGaul.vb" />
+    <Compile Include="App\Models\classPerson.vb" />
+    <Compile Include="App\Models\classTeuton.vb" />
+    <Compile Include="App\Models\classKnight.vb" />
+    <Compile Include="App\Models\classMedievalEmpires.vb" />
+    <Compile Include="App\Models\classRoman.vb" />
+    <Compile Include="App\Models\classSoldier.vb" />
+    <Compile Include="App\Models\classUser.vb" />
+    <Compile Include="App\Modules\GlobalVariables.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -469,45 +490,52 @@
     <Compile Include="Site.Mobile.Master.designer.vb">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Battle.aspx.designer.vb">
+    <Compile Include="App\Views\Battle.aspx.designer.vb">
       <DependentUpon>Battle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Battle.aspx.vb">
+    <Compile Include="App\Views\Battle.aspx.vb">
       <DependentUpon>Battle.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\Dashboard.aspx.designer.vb">
+    <Compile Include="App\Views\Dashboard.aspx.designer.vb">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Dashboard.aspx.vb">
+    <Compile Include="App\Views\Dashboard.aspx.vb">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\Login.aspx.designer.vb">
+    <Compile Include="App\Views\Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.aspx.vb">
+    <Compile Include="App\Views\Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\Map.aspx.designer.vb">
+    <Compile Include="App\Views\Map.aspx.designer.vb">
       <DependentUpon>Map.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Map.aspx.vb">
+    <Compile Include="App\Views\Map.aspx.vb">
       <DependentUpon>Map.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\Shop.aspx.designer.vb">
+    <Compile Include="App\Views\Result.aspx.designer.vb">
+      <DependentUpon>Result.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Result.aspx.vb">
+      <DependentUpon>Result.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="App\Views\Shop.aspx.designer.vb">
       <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shop.aspx.vb">
+    <Compile Include="App\Views\Shop.aspx.vb">
       <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\Test.aspx.designer.vb">
+    <Compile Include="App\Views\Test.aspx.designer.vb">
       <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Test.aspx.vb">
+    <Compile Include="App\Views\Test.aspx.vb">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -535,8 +563,8 @@
     <Content Include="ViewSwitcher.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Views\img\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Views\img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

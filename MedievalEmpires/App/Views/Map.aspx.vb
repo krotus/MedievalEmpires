@@ -1,8 +1,6 @@
 ﻿Public Class Map
     Inherits System.Web.UI.Page
 
-    Public account As User
-    Public game As MedievalEmpires
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             account = CType(Session("User"), User)
