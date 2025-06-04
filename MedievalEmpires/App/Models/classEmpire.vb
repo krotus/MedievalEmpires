@@ -99,7 +99,9 @@ Public MustInherit Class Empire
 
     Public Function getTotalDamage() As Integer
         Dim damage As Integer = 0
-
+        For Each soldier In Me.pSoldiers
+            damage += soldier.pAttack
+        Next
         Return damage
     End Function
 
